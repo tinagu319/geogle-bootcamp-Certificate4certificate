@@ -40,12 +40,13 @@ def generate(text, model, additional_prompt):
 
 @app.route('/summarize', methods=['GET', 'POST'])
 def summarize():
-
+    
     if request.method == 'POST':
         text = request.form['text']
         model = request.form['model']
         additional_prompt = request.form['additional_prompt']
-
+        if not text or text.strip() == "":
+            return render_template('index.html', result="Please enter some notes to summarize.")
         try:
             summary = generate(text, model, additional_prompt)
 

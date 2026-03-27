@@ -10,7 +10,7 @@ PROJECT_ID = "ai-note-summarizer-491416"
 client = genai.Client(
     vertexai=True,
     project=PROJECT_ID,
-    location="us-central1",
+    location="us-east1"
 )
 
 @app.route('/', methods=['GET'])
